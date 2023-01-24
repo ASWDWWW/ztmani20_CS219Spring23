@@ -11,7 +11,7 @@ public class Time {
         //Q3
         System.out.println("It has been " + from_midnight + " seconds from midnight");
         int dayseconds = (24 * 60 * 60);
-        int secondsleft = dayseconds - from_midnight;
+        int secondsleft = dayseconds - from_midnight;  // test
         //Q4
         System.out.println("There are " + secondsleft + " seconds left in the day");
 
