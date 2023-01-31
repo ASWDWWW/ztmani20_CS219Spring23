@@ -1,12 +1,13 @@
 package HW1;
 
+
 public class Time {
-    //void is the return type and main is the method name
+    // void is the return type and main is the method name
     public static void main(String[] args) {
         //header before the question answers
         System.out.println("HW1");
         //Q2
-        //static variables with values for the time
+        // static variables with values for the time
         int hour = 15;
         int minute = 23;
         int second = 20;
@@ -18,15 +19,15 @@ public class Time {
         //computation for seconds in a day
         int dayseconds = (24 * 60 * 60);
         //computation for seconds left in the day
-        int secondsleft = dayseconds - from_midnight;  // test
+        int secondsleft = dayseconds - from_midnight;
         //Q4
-        //print the amount of seconds left in a day
+        //print the amount of seconds left in the day
         System.out.println("There are " + secondsleft + " seconds left in the day");
-        //computation for percent of the day has passed
+        //computation c
         int daypercent = from_midnight*100 / dayseconds;
         //Q5
-        //print the percent of the day has passed
-        System.out.println("At 3:23:20, " + daypercent + "% of the day has passed");
+        //print the percent of the day that has passed rounded to the nearest integer
+        System.out.println("At 3:23:20, " + Math.round(daypercent) + "% of the day has passed");
     }
 
 }
