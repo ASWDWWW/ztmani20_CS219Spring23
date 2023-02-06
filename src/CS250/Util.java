@@ -1,5 +1,8 @@
 package CS250;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Util {
     /***
      *
@@ -53,6 +56,24 @@ public class Util {
         else {
             return false;
         }
+
+    }
+    /**
+     *
+     * @param x random integer
+     * @return true if prime false if not
+     */
+    public static Boolean isPrimeNumber(int x) {
+        //create a new list
+        List<Integer> list = new ArrayList<>();
+        //Find all divisors
+        for (int i = 1; i <= x; i += 1) {
+            if (x%i == 0) {
+                list.add(i);
+            }
+        }
+        //check the list size i chose 2 because a prime number should have only itself and 1 as divisors
+        return list.size() == 2;
 
     }
 }
