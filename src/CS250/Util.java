@@ -76,4 +76,14 @@ public class Util {
         return list.size() == 2;
 
     }
+    /**
+     *
+     * @param r positive real number
+     * @return the area of the circle with inputted radius
+     */
+    //return type is double
+    public static Double circleArea(double r) {
+        //computation of area of a circle
+        return Math.PI * Math.pow(r,2);
+    }
 }
