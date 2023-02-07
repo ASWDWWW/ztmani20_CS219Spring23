@@ -82,6 +82,9 @@ public class HW3 {
         if (a + b == 6){
             return true;
         }
+        if (Math.abs(b-a) == 6){
+            return true;
+        }
         return a - b == 6;
     }
 
@@ -162,28 +165,17 @@ public class HW3 {
      *  shareDigit(12, 44) → false
      */
     public static boolean shareDigit(int x, int y) {
-        int xleft = x / 10;
-        int xright = x % 10;
-        int yleft = y / 10;
-        int yright = y % 10;
+        int q = x / 10;
+        int qx = x % 10;
+        int w = y / 10;
+        int wy = y % 10;
         if (!(10 <= x && x <= 99 && 10 <= y && y <= 99)){
             return false;
         }
-        if (xleft == yleft || xleft == yright){
+        if (q == w || q == wy){
             return true;
         }
-        if (xright == yleft || xright == yright){
-            return true;
-        }
-        if (yleft == xleft || yleft == xright){
-            return true;
-        }
-        if (yright == xleft || yright == xright){
-            return true;
-        }
-        else {
-            return false;
-        }
+        else return qx == w || qx == wy;
     }
 
     public static void main(String[] args) {
@@ -195,6 +187,7 @@ public class HW3 {
         // finish caughtSpeeding tests
 
         // write ordered tests
+        System.out.println("       ordered                 ");
         System.out.println(ordered(1,2,3));
         System.out.println(!ordered(3, 2, 1));
         System.out.println(!ordered(9,1,8));
@@ -204,6 +197,7 @@ public class HW3 {
         System.out.println(!ordered(9,9,1));
 
         // love6 tests
+        System.out.println("       love6                 ");
         System.out.println(love6(3,3));
         System.out.println(love6(6,0));
         System.out.println(love6(0,6));
@@ -213,12 +207,13 @@ public class HW3 {
         System.out.println(love6(-1,-7));
         System.out.println(love6(-3,-9));
         System.out.println(!love6(5,5));
-        System.out.println(!love6(2,8));
+        System.out.println(love6(2,8));
         System.out.println(!love6(5,5));
         System.out.println(!love6(-7,9));
         System.out.println(!love6(3,-9));
 
         //redTicket
+        System.out.println("       redTicket                 ");
         System.out.println(redTicket(2,2,2) == 10);
         System.out.println(redTicket(0,0,0) == 5);
         System.out.println(redTicket(1,1,1) == 5);
@@ -230,6 +225,7 @@ public class HW3 {
         System.out.println(redTicket(4,5,6) == 0);
 
         //blueTicket
+        System.out.println("        blueTicket              ");
         System.out.println(blueTicket(6, 4,1) == 10);
         System.out.println(blueTicket(1, 6,4) == 10);
         System.out.println(blueTicket(4, 1,6) == 10);
@@ -240,16 +236,16 @@ public class HW3 {
         System.out.println(blueTicket(13,-5,4) == 0);
 
         //shareDigits
-        System.out.println("                        ");
-        System.out.println(shareDigit(32,2));
-        System.out.println(shareDigit(2,32));
-        System.out.println(shareDigit(23,2));
-        System.out.println(shareDigit(2,23));
-        System.out.println(shareDigit(13,2));
-
-
-
-
+        System.out.println("   shareDigits                     ");
+        System.out.println(shareDigit(32,12));
+        System.out.println(shareDigit(12,32));
+        System.out.println(shareDigit(23,12));
+        System.out.println(shareDigit(23,21));
+        System.out.println(!shareDigit(23,2));
+        System.out.println(!shareDigit(2,23));
+        System.out.println(!shareDigit(102,2));
+        System.out.println(!shareDigit(100,200));
+        System.out.println(!shareDigit(9,2));
 
 
     }
