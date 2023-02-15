@@ -6,7 +6,7 @@ public class Util {
      * @param c inital investment
      * @param r yearly investment rate
      * @param t time in years
-     * @param n number of imes to compound per year
+     * @param n number of times to compound per year
      * @return value of the investment
      */
     public static double investment(double c, double r, double t, int n) {
