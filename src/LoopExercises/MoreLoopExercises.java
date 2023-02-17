@@ -54,17 +54,16 @@ public class MoreLoopExercises {
     public static int match(String patt, String src) {
         int count = 0;
         // for each char in the source string
-        for (int i = 0; i <= src.length() - patt.length(); i ++) {
+        for (int i = 0; i <= src.length() - patt.length(); i++) {
             int j = 0;
             boolean flag = true;
             // go through patt until the end or ot fail
-            while (j < patt.length() && flag){
+            while (j < patt.length() && flag) {
                 char patt_ch = patt.charAt(j);
-                char src_ch = src.charAt(i+j);
+                char src_ch = src.charAt(i + j);
                 if (isVowel(src_ch) && patt_ch == '0' || !isVowel(src_ch) && patt_ch == '1') {
                     j++;
-                }
-                else {
+                } else {
                     flag = false;
                 }
             } // end of while
@@ -84,8 +83,22 @@ public class MoreLoopExercises {
      * Question: Does the function work if n is negative?
      */
     public static int count7s(int n) {
-        return -1;
-    }
+        int count = 0;
+        while (n >= 10) {
+            if (n % 10 == 7) {
+                count++;
+                n = n / 10;
+            }
+            else {
+                n = n / 10;
+            }
+        } //end of for loop
+        if (n == 7) {
+            count++;
+        }
+        return count;
+    }// end of function match
+
 
     /*
      *  If we list all the natural numbers below 10 that are multiples
@@ -99,8 +112,29 @@ public class MoreLoopExercises {
      *  sum3or5(1000) = 233168
      */
     public static int sum3or5(int n) {
-        return -1;
+        int count = 0;
+        int h = 3;
+        int m = 5;
+        int i = 0;
+        while (h < n && m < n) {
+            if (h > m) {
+                count = count + h;
+                i++;
+                h = h + 3;
+            }
+            if (m > h) {
+                count = count + m;
+                i++;
+                m = m + 3;
+            }
+            if (m == h){
+                count = count + h;
+            }
+        }
+        return count;
     }
+
+
 
     /*
      * Return the first factor of n greater than 1
@@ -242,6 +276,18 @@ public class MoreLoopExercises {
     public static void main(String[] args) {
         System.out.println(match("010", "amazing") == 2);
         System.out.println(match("011", "amazing") == 1);
+        System.out.println("                                    ");
+        System.out.println(count7s(7) == 1);
+        System.out.println(count7s(713534) == 1);
+        System.out.println(count7s(122343537) == 1);
+        System.out.println(count7s(12237353) == 1);
+        System.out.println(count7s(77777) == 5);
+        System.out.println(count7s(123456) == 0);
+        System.out.println(!(count7s(2) == 1));
+        System.out.println(!(count7s(-7) == 1));
+        System.out.println("                                    ");
+        System.out.println(sum3or5(10));
+        System.out.println(sum3or5(1000));
 
     }
 }
