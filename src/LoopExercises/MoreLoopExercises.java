@@ -115,20 +115,40 @@ public class MoreLoopExercises {
         int count = 0;
         int h = 3;
         int m = 5;
-        int i = 0;
-        while (h < n && m < n) {
-            if (h > m) {
+        while (h < n || m < n) {
+            while (h < m) {
+                //System.out.println(h);
                 count = count + h;
-                i++;
+                //System.out.println(count);
                 h = h + 3;
+                //System.out.println(h);
+                //System.out.println(m);
+                //System.out.println();
+                if (m >= n && h >= n) {
+                    return count;
+                }
+
             }
-            if (m > h) {
+            while (m < h) {
+                //System.out.println(m);
                 count = count + m;
-                i++;
-                m = m + 3;
+                //System.out.println(count);
+                m = m + 5;
+                //System.out.println(m);
+                //System.out.println(h);
+                //System.out.println();
+                if (m >= n && h >= n){
+                    return count;
+                }
             }
-            if (m == h){
+            while (m == h) {
                 count = count + h;
+                m = m + 5;
+                h = h + 3;
+                if (m >= n && h >= n){
+                    return count;
+                }
+
             }
         }
         return count;
@@ -151,7 +171,19 @@ public class MoreLoopExercises {
      *           remove it?
      */
     public static long factor(long n) {
-        return -1; // shut up error message
+        int i = 2;
+        while (i < n){
+            if (n % i == 0) {
+                return i;
+            }
+            if (n % i != 0) {
+                i++;
+            }
+            else {
+                return -1;
+            }
+        }
+        return -1;
     }
 
     /*
@@ -288,6 +320,11 @@ public class MoreLoopExercises {
         System.out.println("                                    ");
         System.out.println(sum3or5(10));
         System.out.println(sum3or5(1000));
+        System.out.println();
+        System.out.println(factor(25) == 5);
+        System.out.println(factor(59953793) == 7727);
+        System.out.println(factor(1531482031) == -1);
+        System.out.println(factor(7304692485435694493L) == -1);
 
     }
 }

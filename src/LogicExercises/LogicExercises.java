@@ -97,5 +97,6 @@ public class LogicExercises {
         System.out.println(caughtSpeeding(80, false) == 1);
         System.out.println(caughtSpeeding(81, false) == 2);
         System.out.println(caughtSpeeding(65, true) == 0);
+
     }
 }  // class LogicExercises
