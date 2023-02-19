@@ -1,18 +1,21 @@
 package HW4;
 
+import Utility.Util;
+
 import java.util.Scanner;
 
 public class HW4 {
     public static void main(String[] args) {
         Scanner kbd = new Scanner(System.in);
-        getValidInvestment(kbd);
-        getValidInterestRate(kbd);
-        getValidNumberOfYears(kbd);
-        getValidCompund(kbd);
+        double c = getValidInvestment(kbd);
+        double r = getValidInterestRate(kbd);
+        double t = getValidNumberOfYears(kbd);
+        int n = getValidCompund(kbd);
+        System.out.println(Util.investment(c,r,t,n));
     }
 
 
-    public static void getValidInvestment(Scanner kbd) {
+    public static double getValidInvestment(Scanner kbd) {
         int i = 1;
         while (i == 1) {
             System.out.print("Enter the initial investment value: ");
@@ -25,6 +28,7 @@ public class HW4 {
                     System.out.printf("Initial Investment: %.1f\n", c);
                     System.out.println();
                     i = 0;
+                    return c;
                 }
             }
             else {
@@ -32,9 +36,10 @@ public class HW4 {
                 System.out.println("Error: Initial investment should be a valid number. You entered: " + d);
             }
         }
+        return 0;
     }
 
-    public static void getValidInterestRate(Scanner kbd) {
+    public static double getValidInterestRate(Scanner kbd) {
         int i = 2;
         while (i == 2) {
             System.out.print("Enter the investment rate: ");
@@ -48,6 +53,7 @@ public class HW4 {
                     System.out.printf("Investment rate: %,1f\n", c);
                     System.out.println();
                     i = 0;
+                    return c;
                 }
             }
             else {
@@ -55,9 +61,10 @@ public class HW4 {
                 System.out.println("Error: Investment rate should be a valid number. You entered: " + d);
             }
         }
+        return 0;
     }
 
-    public static void getValidNumberOfYears(Scanner kbd){
+    public static double getValidNumberOfYears(Scanner kbd){
         int i = 3;
         while (i == 3) {
             
@@ -71,6 +78,7 @@ public class HW4 {
                     System.out.printf("Investment time: %.1f\n", c);
                     System.out.println();
                     i = 0;
+                    return c;
                 }
             }
             else {
@@ -79,8 +87,9 @@ public class HW4 {
 
             }
         }
+        return 0;
     }
-    public static void getValidCompund(Scanner kbd){
+    public static int getValidCompund(Scanner kbd){
         int i = 4;
         while (i == 4) {
             System.out.print("Enter the have many year to compound investment: ");
@@ -94,6 +103,7 @@ public class HW4 {
                     System.out.println("Investment rate: " + c);
                     System.out.println();
                     i = 0;
+                    return c;
                 }
             }
             else {
@@ -101,6 +111,7 @@ public class HW4 {
                 System.out.println("Error: Compounded years should be a valid number. You entered: " + d);
             }
         }
+        return i;
     }
 
 
