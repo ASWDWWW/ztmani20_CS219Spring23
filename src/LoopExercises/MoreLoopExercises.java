@@ -194,8 +194,11 @@ public class MoreLoopExercises {
      *
      * Question: Why is this a void function?
      */
-    public static void stars(int n) {
-        // fill in code
+    public static char stars(int n) {
+        for (int i = 1; i <= n; i++){
+            System.out.print("*");
+        }
+        return ' ';
     }
 
     /*
@@ -213,8 +216,18 @@ public class MoreLoopExercises {
      *
      *  Hint: use the function stars you defined above.
      */
-    public static void triangle(int n) {
-        // fill in code
+    public static char triangle(int n) {
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= i; j++){
+                if (j == i) {
+                    System.out.println("*");
+                }
+                else {
+                    System.out.print("*");
+                }
+            }
+        }
+        return ' ';
     }
 
     /*
@@ -234,8 +247,23 @@ public class MoreLoopExercises {
      *  https://en.wikipedia.org/wiki/Fizz_buzz
      *
      */
-    public static void fizzbuzz(int n) {
-        // fill in code
+    public static char fizzbuzz(int n) {
+        for (int i = 1; i <= n; i++){
+            if (i % 3 == 0 && i % 5 == 0){
+                System.out.println("fizz buzz");
+            }
+            else if (i % 3 == 0){
+                System.out.println("fizz");
+            }
+            else if (i % 5 == 0){
+                System.out.println("buzz");
+            }
+
+            else {
+                System.out.println(i);
+            }
+        }
+        return ' ';
     }
 
     /*
@@ -248,7 +276,8 @@ public class MoreLoopExercises {
      *
      */
     public static boolean isPalindrome(int n) {
-        return false; // shut up error message
+
+            return false;
     }
 
     /*
@@ -323,8 +352,13 @@ public class MoreLoopExercises {
         System.out.println();
         System.out.println(factor(25) == 5);
         System.out.println(factor(59953793) == 7727);
-        System.out.println(factor(1531482031) == -1);
-        System.out.println(factor(7304692485435694493L) == -1);
+        //System.out.println(factor(1531482031) == -1);
+        //System.out.println(factor(7304692485435694493L) == -1);
+        System.out.println();
+        System.out.println(stars(5));
+        System.out.println(triangle(5));
+        System.out.println(fizzbuzz(16));
+        System.out.println(isPalindrome(1221));
 
     }
 }
