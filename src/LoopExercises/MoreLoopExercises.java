@@ -294,8 +294,32 @@ public class MoreLoopExercises {
      *
      * In general, there are n rows of asterisks where the last row has n asterisks.
      */
-    public static void staircase(int n) {
-        // fill in code here
+    public static Integer staircase(int n) {
+        String y = "";
+        int i = n - 1;
+        int count = 1;
+        int j = n;
+        while (j != 0) {
+            while (count <= i) {
+                y = y + " ";
+                count++;
+            }
+            while (count <= n && count > i) {
+                if (y.length() == n) {
+                    y = y + "*";
+                    System.out.println(y);
+                    j = n;
+
+                    y = "";
+                    count = 1;
+                }
+                else {
+                    y = y + "*";
+                    count++;
+                }
+            }
+        }// fill in code here
+        return 1;
     }
 
     /*
@@ -359,6 +383,7 @@ public class MoreLoopExercises {
         System.out.println(triangle(5));
         System.out.println(fizzbuzz(16));
         System.out.println(isPalindrome(1221));
+        System.out.println(staircase(5));
 
     }
 }
