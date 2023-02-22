@@ -84,6 +84,7 @@ public class MoreLoopExercises {
      */
     public static int count7s(int n) {
         int count = 0;
+        n = Math.abs(n);
         while (n >= 10) {
             if (n % 10 == 7) {
                 count++;
@@ -172,7 +173,7 @@ public class MoreLoopExercises {
      */
     public static long factor(long n) {
         int i = 2;
-        while (i < n){
+        while (i <= n) {
             if (n % i == 0) {
                 return i;
             }
@@ -247,7 +248,7 @@ public class MoreLoopExercises {
      *  https://en.wikipedia.org/wiki/Fizz_buzz
      *
      */
-    public static void fizzbuzz(int n) {
+    public static char fizzbuzz(int n) {
         for (int i = 1; i <= n; i++){
             if (i % 3 == 0 && i % 5 == 0){
                 System.out.println("fizz buzz");
@@ -263,6 +264,7 @@ public class MoreLoopExercises {
                 System.out.println(i);
             }
         }
+        return ' ';
     }
 
     /*
@@ -275,8 +277,14 @@ public class MoreLoopExercises {
      *
      */
     public static boolean isPalindrome(int n) {
+        int j = 0;
+        int x = n;
+        while (n != 0){
+            j = j * 10 + ( n % 10);
+            n = n / 10;
 
-            return false;
+        }
+        return j == x;
     }
 
     /*
@@ -293,31 +301,31 @@ public class MoreLoopExercises {
      *
      * In general, there are n rows of asterisks where the last row has n asterisks.
      */
-    public static void staircase(int n) {
+    public static int staircase(int n) {
         String y = "";
         int i = n - 1;
         int count = 1;
         int j = n;
-        while (j != 0) {
+        while (j > 0) {
             while (count <= i) {
                 y = y + " ";
                 count++;
             }
             while (count <= n && count > i) {
+                y = y + "*";
                 if (y.length() == n) {
-                    y = y + "*";
                     System.out.println(y);
-                    j = n;
-
+                    j = j - 1;
+                    i = i - 1;
                     y = "";
                     count = 1;
                 }
                 else {
-                    y = y + "*";
                     count++;
                 }
             }
         }// fill in code here
+        return 1;
     }
 
     /*
@@ -374,14 +382,14 @@ public class MoreLoopExercises {
         System.out.println();
         System.out.println(factor(25) == 5);
         System.out.println(factor(59953793) == 7727);
-        //System.out.println(factor(1531482031) == -1);
-        //System.out.println(factor(7304692485435694493L) == -1);
+        System.out.println(factor(1531482031) == -1);
+        System.out.println(factor(7304692485435694493L) == -1);
         System.out.println();
         System.out.println(stars(5));
         System.out.println(triangle(5));
-        fizzbuzz(16);
-        //isPalindrome(1221);
-        staircase(5);
+        System.out.println(fizzbuzz(16));
+        System.out.println(isPalindrome(1221));
+        //System.out.println(staircase(5));
 
     }
 }
