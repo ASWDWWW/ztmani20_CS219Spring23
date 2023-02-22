@@ -247,7 +247,7 @@ public class MoreLoopExercises {
      *  https://en.wikipedia.org/wiki/Fizz_buzz
      *
      */
-    public static char fizzbuzz(int n) {
+    public static void fizzbuzz(int n) {
         for (int i = 1; i <= n; i++){
             if (i % 3 == 0 && i % 5 == 0){
                 System.out.println("fizz buzz");
@@ -263,7 +263,6 @@ public class MoreLoopExercises {
                 System.out.println(i);
             }
         }
-        return ' ';
     }
 
     /*
@@ -294,7 +293,7 @@ public class MoreLoopExercises {
      *
      * In general, there are n rows of asterisks where the last row has n asterisks.
      */
-    public static Integer staircase(int n) {
+    public static void staircase(int n) {
         String y = "";
         int i = n - 1;
         int count = 1;
@@ -319,7 +318,6 @@ public class MoreLoopExercises {
                 }
             }
         }// fill in code here
-        return 1;
     }
 
     /*
@@ -381,9 +379,9 @@ public class MoreLoopExercises {
         System.out.println();
         System.out.println(stars(5));
         System.out.println(triangle(5));
-        System.out.println(fizzbuzz(16));
-        System.out.println(isPalindrome(1221));
-        System.out.println(staircase(5));
+        fizzbuzz(16);
+        //isPalindrome(1221);
+        staircase(5);
 
     }
 }
