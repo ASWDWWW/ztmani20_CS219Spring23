@@ -217,7 +217,7 @@ public class MoreLoopExercises {
      *
      *  Hint: use the function stars you defined above.
      */
-    public static char triangle(int n) {
+    public static void triangle(int n) {
         for (int i = 1; i <= n; i++){
             for (int j = 1; j <= i; j++){
                 if (j == i) {
@@ -228,7 +228,6 @@ public class MoreLoopExercises {
                 }
             }
         }
-        return ' ';
     }
 
     /*
@@ -385,7 +384,7 @@ public class MoreLoopExercises {
         System.out.println(factor(7304692485435694493L) == -1);
         System.out.println();
         System.out.println(stars(5));
-        System.out.println(triangle(5));
+        triangle(5);
         fizzbuzz(16);
         System.out.println(isPalindrome(1221));
         //System.out.println(staircase(5));

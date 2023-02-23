@@ -5,7 +5,15 @@ public class StringPlay {
         int count = 0;
         for (int i = 0; i < s.length(); i++){
             for (int j = 0; j < s.length(); j++){
-                //TODO finish as a study problem
+                if (s.charAt(j) == s.charAt(i)){
+                    count++;
+                }
+            }
+            if (count == 2){
+                count = 0;
+            }
+            else {
+                return false;
             }
         }
         return true;
@@ -69,6 +77,10 @@ public class StringPlay {
         System.out.println(!isAbecerdaian("applesauce"));
         System.out.println(isAbecerdaian("BiOpSY"));
         System.out.println(isAbecerdaian("BIOpsy"));
+
+        System.out.println();
+        System.out.println(isDubloon("aassddff"));
+        System.out.println(isDubloon("aasdf"));
 
 
     }

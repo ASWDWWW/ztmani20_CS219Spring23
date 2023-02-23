@@ -13,9 +13,16 @@ public class Exam1Study {
         System.out.println(" Pick an integer");
         int x = kbd.nextInt();
         System.out.println(twoOrSeven(x));
+        System.out.println(volume(3, 10));
 
     }
 
+    public static double volume(double r, double h) {
+        double v = 0;
+        v = (1./3.) * Math.PI * Math.pow(r, 2) * h;
+        return v;
+
+    }
 
     public static int twoOrSeven(int x) {
         int count = 0;
