@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class ModularPlay {
     public static void main(String[] args) {
-        System.out.println(-2 % 12 == -2);
-        System.out.println(-2 / 12 == 0);
-        System.out.println(Math.floorMod(-2, 12) == 10);
-        System.out.println(Math.floorDiv(-2, 12) == -1);
+//        System.out.println(-2 % 12 == -2);
+//        System.out.println(-2 / 12 == 0);
+//        System.out.println(Math.floorMod(-2, 12) == 10);
+//        System.out.println(Math.floorDiv(-2, 12) == -1);
 
         // not suitable for crypto
         Random rng = new Random();
