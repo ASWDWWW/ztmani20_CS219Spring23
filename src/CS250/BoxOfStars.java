@@ -2,7 +2,7 @@ package CS250;
 
 public class BoxOfStars {
     public static void main(String[] args) {
-        boxOfStars(5, 3);
+        boxOfStars(110000, 8);
     }
 
     public static void boxOfStars(int w, int h) {
