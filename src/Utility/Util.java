@@ -1,5 +1,10 @@
 package Utility;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
+
 public class Util {
     /**
      *
@@ -29,4 +34,27 @@ public class Util {
         return w;
 
     }
+
+    public static Scanner openSite(String path) {
+//        String path = "http://10.60.15.25/~ehar/cs219/swallow-speeds.txt";
+        try {
+            URL url = new URL(path);
+            Scanner site = new Scanner(url.openConnection().getInputStream());
+            return site;
+        } catch (MalformedURLException e) {
+            System.out.println("Error: malformed URL");
+            //null is the empty object
+            return null;
+//            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error: cannot access site");
+            return null;
+//            throw new RuntimeException(e);
+        }
+
+    } // end of openSite
+
+
+
+
 }
