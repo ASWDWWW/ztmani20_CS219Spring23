@@ -23,17 +23,34 @@ public class Exercise65_66 {
     }
 
     public static boolean canSpell(String word, String tiles) {
+        int count = 0;
+        int match = word.length();
         for (int i = 0; i < word.length(); i++){
             char z = word.charAt(i);
-            for (int j = 0; j < tiles.length(); j++) {
-                char s = tiles.charAt(tiles.indexOf(j));
-                if (s == z){
-                }
+            if (tiles.indexOf(z) != -1 && tiles.indexOf(z) != 0 && tiles.indexOf(z) != tiles.length()) {
+                tiles = tiles.substring(0,tiles.indexOf(z)) + tiles.substring(tiles.indexOf(z) + 1);
+                count++;
+            }
+            if (tiles.indexOf(z) == 0) {
+                tiles = tiles.substring(1);
+                count++;
+            }
+            if (tiles.indexOf(z) == tiles.length()) {
+                tiles = tiles.substring(0,tiles.indexOf(z));
+                count++;
+            }
+            else {
+                tiles = tiles.substring(0);
             }
 
-        }
 
-        return false; // squelch error message about no return statement
+        }
+        if (count == match) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
@@ -51,8 +68,11 @@ public class Exercise65_66 {
         System.out.println(!isDoubloon("aasdf"));
         System.out.println(!isDoubloon("abcdefh"));
 
-//        System.out.println(canSpell("boot", "axobasrto"));
-//        System.out.println(!canSpell("hippo", "haxobapsrito"));
+        System.out.println();
+        System.out.println(canSpell("boot", "axobasrto"));
+        System.out.println(canSpell("zakiy", "hazobapsiktoyyy"));
+        System.out.println(canSpell("cs", "hazobapsiktoychjkn"));
+        System.out.println(!canSpell("hippo", "haxobapsrito"));
 
         // Student: add more test cases including negative tests.
         // All tests should print true if the test passes.
