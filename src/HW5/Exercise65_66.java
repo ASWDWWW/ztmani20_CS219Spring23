@@ -23,11 +23,13 @@ public class Exercise65_66 {
     }
 
     public static boolean canSpell(String word, String tiles) {
+        word = word.toLowerCase();
+        tiles = tiles.toLowerCase();
         int count = 0;
         int match = word.length();
         for (int i = 0; i < word.length(); i++){
             char z = word.charAt(i);
-            if (tiles.indexOf(z) != -1 && tiles.indexOf(z) != 0 && tiles.indexOf(z) != tiles.length()) {
+            if (tiles.indexOf(z) != -1 && tiles.indexOf(z) != 0) {
                 tiles = tiles.substring(0,tiles.indexOf(z)) + tiles.substring(tiles.indexOf(z) + 1);
                 count++;
             }
@@ -35,22 +37,9 @@ public class Exercise65_66 {
                 tiles = tiles.substring(1);
                 count++;
             }
-            if (tiles.indexOf(z) == tiles.length()) {
-                tiles = tiles.substring(0,tiles.indexOf(z));
-                count++;
-            }
-            else {
-                tiles = tiles.substring(0);
-            }
-
 
         }
-        if (count == match) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return count == match;
     }
 
     public static void main(String[] args) {
@@ -71,6 +60,8 @@ public class Exercise65_66 {
         System.out.println();
         System.out.println(canSpell("boot", "axobasrto"));
         System.out.println(canSpell("zakiy", "hazobapsiktoyyy"));
+        System.out.println(canSpell("back", "hazobapsiktcuiehiwhkjhkckkhejwkeoyyy"));
+
         System.out.println(canSpell("cs", "hazobapsiktoychjkn"));
         System.out.println(!canSpell("hippo", "haxobapsrito"));
 
