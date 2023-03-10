@@ -1,11 +1,19 @@
 package LoopExercises;
 
-public class MoreLoopExercises {
 
+public class MoreLoopExercises {
+    /**
+     *
+     * @param ch a random letter of the alphabet lower or upper case
+     * @return Boolean value
+     */
     public static boolean isVowel(char ch) {
-        return "aeioyAEIOUY".indexOf(ch) > -1;
+        //find if the ch is in the index of the provide string of vowels
+        return "aeiouyAEIOUY".indexOf(ch) > -1;
         //return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'y';
     }
+
+
 
     /*
      * You are given two strings - pattern and source.
@@ -388,6 +396,7 @@ public class MoreLoopExercises {
         fizzbuzz(16);
         System.out.println(isPalindrome(1221));
         //System.out.println(staircase(5));
+        System.out.println();
 
     }
 }
