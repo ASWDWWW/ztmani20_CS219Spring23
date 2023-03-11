@@ -90,14 +90,21 @@ public class MoreLoopExercises {
      *
      * Question: Does the function work if n is negative?
      */
+    // we are returning an integer
     public static int count7s(int n) {
+        //count to keep the count
         int count = 0;
+        //make it abs to accept negatives
         n = Math.abs(n);
+        //while function if we can mod by 10
+        // mod to get the last number
+        // divide by 10 to remove the number
         while (n >= 10) {
             if (n % 10 == 7) {
                 count++;
                 n = n / 10;
             }
+            // return the number
             else {
                 n = n / 10;
             }
@@ -105,6 +112,7 @@ public class MoreLoopExercises {
         if (n == 7) {
             count++;
         }
+        //return the count of how many 7s
         return count;
     }// end of function match
 
@@ -120,46 +128,65 @@ public class MoreLoopExercises {
      *  sum3or5(10) = 23
      *  sum3or5(1000) = 233168
      */
+    //returning a integer value
     public static int sum3or5(int n) {
+        // keeping a count for the overall sum
         int count = 0;
+        // initialize to variables for 3 and 5
         int h = 3;
         int m = 5;
+        // while function so we do go over the n for the factors
         while (h < n || m < n) {
+            // if h factor is less than m factor
             while (h < m) {
                 //System.out.println(h);
+                //add factor to the count
                 count = count + h;
                 //System.out.println(count);
+                // increment h by 3 for the next factor
                 h = h + 3;
                 //System.out.println(h);
                 //System.out.println(m);
                 //System.out.println();
+                //check if the m and n equals the input number
                 if (m >= n && h >= n) {
+                    // if so then good and return the sum
                     return count;
                 }
 
             }
+            // if h factor is greater than m factor
             while (m < h) {
                 //System.out.println(m);
+                // add factor to count
                 count = count + m;
                 //System.out.println(count);
+                //increment m by 5
                 m = m + 5;
                 //System.out.println(m);
                 //System.out.println(h);
                 //System.out.println();
+                //check if the m and n equals the input number
                 if (m >= n && h >= n){
+                    // if so then good and return the sum
                     return count;
                 }
             }
+            // check if m and h are equal so we dont double count
             while (m == h) {
                 count = count + h;
+                // increment both m and h
                 m = m + 5;
                 h = h + 3;
+                //check if the m and n equals the input number
                 if (m >= n && h >= n){
+                    // if so then good and return the sum
                     return count;
                 }
 
             }
         }
+        //return the sum
         return count;
     }
 
@@ -179,19 +206,27 @@ public class MoreLoopExercises {
      *           Any guess of what it means or why it is there?  What happens if you
      *           remove it?
      */
+    // returning a long value
     public static long factor(long n) {
+        // initilize i  to 2 because first factor great than 1
         int i = 2;
+        // while function to check all the factors up to the number
         while (i <= n) {
+            // use mod operation to check if a factor
             if (n % i == 0) {
+                // return the factor
                 return i;
             }
             if (n % i != 0) {
+                //increment i by 1
                 i++;
             }
             else {
+                // no factor return -1
                 return -1;
             }
         }
+        // no factor return -1
         return -1;
     }
 
@@ -204,9 +239,12 @@ public class MoreLoopExercises {
      * Question: Why is this a void function?
      */
     public static char stars(int n) {
+        // loop through n times
         for (int i = 1; i <= n; i++){
+            //print a *
             System.out.print("*");
         }
+        //if n = 0 return nothing
         return ' ';
     }
 
@@ -225,13 +263,19 @@ public class MoreLoopExercises {
      *
      *  Hint: use the function stars you defined above.
      */
+    // void becasue we print in the class
     public static void triangle(int n) {
+        // loop through n times
         for (int i = 1; i <= n; i++){
+            //loop through i times
             for (int j = 1; j <= i; j++){
+                //if equal to each other
                 if (j == i) {
+                    // print new line
                     System.out.println("*");
                 }
                 else {
+                    //print i stars
                     System.out.print("*");
                 }
             }
@@ -255,19 +299,26 @@ public class MoreLoopExercises {
      *  https://en.wikipedia.org/wiki/Fizz_buzz
      *
      */
+    // void becasue we print in the class
     public static void fizzbuzz(int n) {
+        //loop through n times
         for (int i = 1; i <= n; i++){
+            //check if a multiple of 3 and 5
             if (i % 3 == 0 && i % 5 == 0){
                 System.out.println("fizz buzz");
             }
+            //check if a multiple of 3 or 5
             else if (i % 3 == 0){
+                // if multiple 3 print fizz
                 System.out.println("fizz");
             }
             else if (i % 5 == 0){
+                //if multiple of 5 print buzz
                 System.out.println("buzz");
             }
 
             else {
+                // if nothing then print the number
                 System.out.println(i);
             }
         }
@@ -282,14 +333,20 @@ public class MoreLoopExercises {
      * n passed to it is a palindrome integer, otherwise it returns false.
      *
      */
+    // we are returning a boolean value
     public static boolean isPalindrome(int n) {
+        // initialize j for new number  and x to manipulate n
         int j = 0;
         int x = n;
+        //check there is no more numbers in n
         while (n != 0){
+            //take the last number and add the digit to the first place of the j integer
             j = j * 10 + ( n % 10);
+            // take the last number off n
             n = n / 10;
 
         }
+        // if the j is equal to the original number than true
         return j == x;
     }
 
