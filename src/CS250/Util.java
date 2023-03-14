@@ -86,4 +86,62 @@ public class Util {
         //computation of area of a circle
         return Math.PI * Math.pow(r,2);
     }
+
+    /**
+     *
+     * @param lower random integer
+     * @param upper random integer
+     */
+    //leave void because we print in the function
+    public static void printRange(int lower, int upper) {
+        //compare if equal to each other
+        if (lower == upper) {
+            System.out.print(lower);
+        }
+        //else
+        else {
+            // check what is actually the upper bound
+            if (lower > upper) {
+                //Until past the second bound
+                while (lower != upper - 1) {
+                    //print the number
+                    System.out.print(lower + " ");
+                    //increment by -1
+                    lower--;
+                }
+            } else {
+                //Until past the second bound
+                while (lower != upper + 1) {
+                    System.out.print(lower + " ");
+                    //increment by 1
+                    lower++;
+                }
+            }
+        }
+    }
+
+    /**
+     *
+     * @param a random int
+     * @param b random int
+     * @param c random int
+     * @return how many ints are unique values
+     */
+    //change void to in because we are return 3,2,or 1
+    public static int numUnique(int a, int b, int c) {
+        //check if one of the ints are equal
+        if (a != b && b == c || a != b && a == c || c != b && b == a ) {
+            //return 2 because there are 2 unique int
+            return 2;
+        }
+        //check if ints are not equal
+        else if (a != b) {
+            //return 3 because there are 3 unique int
+            return 3;
+        }
+        else {
+            //return 1 because there is 1 unique int
+            return 1;
+        }
+    }
 }
