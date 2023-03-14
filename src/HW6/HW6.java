@@ -126,21 +126,42 @@ public class HW6 {
     public static void main(String[] args) {
         String [] names = {"Harry", "Ron", "Draco", "Draco", "Hermione"};
         String [] fruit = {"apple", "pear", "banana", "apple", "orange", "guava"};
+        String [] fruit2 = {"apple", "apple", "pear", "banana", "orange", "guava"};
+        String [] fruit3 = { "apple", "pear", "banana", "guava", "guava"};
         System.out.println(hasAdjacent(names));
+        System.out.println(hasAdjacent(fruit2));
+        System.out.println(hasAdjacent(fruit3));
         System.out.println(!hasAdjacent(fruit));
+
+        System.out.println();
+
         System.out.println(hasDuplicate(names));
         System.out.println(hasDuplicate(fruit));
+        System.out.println(hasDuplicate(fruit2));
+        System.out.println(hasDuplicate(fruit3));
         System.out.println(!hasDuplicate(new String [] {"baseball", "hockey", "soccer", "football"}));
 
-        int [] values = {2,7,11,15};
-        System.out.println(goofy(values, 9));
-        System.out.println(!goofy(values, 5));
+        System.out.println();
 
-        System.out.println(Arrays.equals(make_array("hello"),
-                new char [] {'h','e','l','l','o'}));
+        int [] values = {2,7,11,15};
+        int [] values2 = {2,2,2,2};
+        System.out.println(goofy(values, 9));
+        System.out.println(goofy(values2, 4));
+        System.out.println(!goofy(values, 5));
+        System.out.println(!goofy(values2, 5));
+
+        System.out.println();
+
+        System.out.println(Arrays.equals(make_array("hello"), new char [] {'h','e','l','l','o'}));
+        System.out.println(Arrays.equals(make_array("zakiy"), new char [] {'z','a','k','i','y'}));
+
+        System.out.println();
 
         System.out.println(isAnagram("angered", "enraged"));
         System.out.println(!isAnagram("pizza", "sauce"));
+        System.out.println(!isAnagram("lock", "key"));
+
+        System.out.println();
 
         int [] nums = {3, 5, 5, 5, 8, 21, 21, 23, 34, 39, 39, 40, 40, 40, 41};
         System.out.println(numDifferent(nums) == 9);
