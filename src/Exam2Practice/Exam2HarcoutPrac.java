@@ -54,6 +54,21 @@ public class Exam2HarcoutPrac {
         System.out.println(s.charAt(s.indexOf("f")));
 
         System.out.println(-7%97);
+        System.out.println(-33%15);
+        System.out.println(Math.floorDiv(-7,99));
+        System.out.println(Math.floorDiv(-16,3));
+        System.out.println(Math.floorDiv(16,3));
+        System.out.println(Math.floorMod(-7,99));
+        System.out.println(Math.floorMod(7,99));
+        String h = "sdinwdenweondwonedwonedwondewondewonedo";
+        System.out.println(h.substring(10,10));
+        //System.out.println(h.charAt(h.length()));
+        System.out.println('a'+5);
+        System.out.println((char) 'a' + 5);
+        System.out.println((char) ('a' + 5));
+        char ch = 'b';
+        ch = (char) (ch - ('a'-'A'));
+        System.out.println(ch);
 
     }
 }
