@@ -34,6 +34,17 @@ public class Exam2HarcoutPrac {
         }
     }
 
+    public static Boolean hasDuplicate(String [] aos) {
+        for (int j = 0; j < aos.length; j++){
+            for (int i = 0; i < aos.length; i++){
+                if (i != j && aos[j].compareToIgnoreCase(aos[i]) < 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println(-23 % 10);
         System.out.println(23 % -10);
@@ -69,6 +80,14 @@ public class Exam2HarcoutPrac {
         char ch = 'b';
         ch = (char) (ch - ('a'-'A'));
         System.out.println(ch);
+        String i = "101223";
+
+
+        System.out.println();
+        String [] aos = {"Harry", "Mary", "Larry", "Gerry", "Terry", "larry"};
+        System.out.println(hasDuplicate(aos));
+        System.out.println();
+        System.out.println('a');
 
     }
 }
