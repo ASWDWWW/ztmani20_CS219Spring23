@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ZipCodeDB {
-    private static ArrayList<ZipCode> codes;
+    private ArrayList<ZipCode> codes;
 
     public ZipCodeDB() {
          codes = new ArrayList<>();
     }
 
-    public static void load() {
+    public void load() {
         String path = "http://10.60.15.25/~ehar/cs219/zips.txt";
         Scanner s = Util.openSite(path);
 
@@ -24,8 +24,36 @@ public class ZipCodeDB {
         while (s.hasNextLine()) {
             String line = s.nextLine();
             String [] parts = line.split(",");
-            ZipCode code = new ZipCode(parts[1], parts[2], parts[3], Double.parseDouble(parts[4]) , Double.parseDouble(parts[5]));
-            codes.add(code);
+            ZipCode code = new ZipCode(parts[1].substring(1,parts[1].length()-1),
+                    parts[2].substring(1,parts[2].length()-1),
+                    parts[3].substring(1,parts[3].length()-1),
+                    Double.parseDouble(parts[4]),
+                    Double.parseDouble(parts[5]));
+                    codes.add(code);
         }
+    } //load
+
+    public ZipCode findByZip(String code){
+        for (ZipCode zc : codes) {
+            if (zc.getCode().equals(code)){
+                return zc;
+            }
+        }
+        return null;
     }
+
+    public void findDuplicates() {
+        for (int i = 0; i < codes.size(); i++) {
+            for (int j = i + 1; j < codes.size(); j++) {
+                if (i != j) {
+                    if (codes.get(i).getCode().equals(codes.get(j).getCode())) {
+                        System.out.println(codes.get(i));
+                        System.out.println(codes.get(j));
+                    }
+                }
+            }
+        }
+
+    }
+
 }
