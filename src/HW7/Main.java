@@ -54,12 +54,18 @@ public class Main {
 
         System.out.println();
 
-        p1.displayAccounts(accounts);
+        displayAccounts(accounts);
 
 
 
     }
 
+    //displays all account information
+    public static void displayAccounts(ArrayList<BankAccount> accounts) {
+        for (BankAccount acc : accounts) {
+            System.out.println(acc);
+        }
+    }
 
 
 

@@ -126,11 +126,6 @@ public class BankAccount {
         }
 
     }
-    //displays all account information
-    public void displayAccounts(ArrayList<BankAccount> accounts) {
-        for (BankAccount acc : accounts) {
-            System.out.println(acc);
-        }
-    }
+
 
 }
