@@ -2,12 +2,14 @@ package HW7;
 
 import ZipCodes.Coordinate;
 
+import java.util.ArrayList;
+
 public class BankAccount {
-    private String firstName, lastName;
-    private String accNumber;
-    private String street, city, state, zipcode;
-    private double accBalance;
-    private double interestRate;
+    private String firstName, lastName; // first and last name in strings
+    private String accNumber; // bank acc number that can have up to 10 numbers and the first digit can not be 0
+    private String street, city, state, zipcode; //name of the street, city, two char state, and 5 digit string
+    private double accBalance; // amount of money in the acc and can not go below 0
+    private double interestRate; // interest rate between 1 - 100 that has to be divided by 100 to be the rate value
 
     public BankAccount(String firstName, String lastName, String accNumber, String street, String city, String state, String zipcode, double accBalance, double interestRate) {
         this.firstName = firstName;
@@ -76,12 +78,14 @@ public class BankAccount {
                 ", interestRate=" + interestRate +
                 '}';
     }
+    // the credit function add an amount to the bank account balance
     public double credit(double atm) {
         if (atm > 0) {
             this.accBalance = accBalance + atm;
         }
-        return this.accBalance;
+        return accBalance;
     }
+    // the debit function subtracts an amount from the bank account balance
     public double debit(double atm) {
         if (atm > 0){
             if (this.accBalance == 0){
@@ -90,9 +94,11 @@ public class BankAccount {
             else {
                 this.accBalance = accBalance - atm;
                 if (accBalance < 0){
-                    return 0;
+                    this.accBalance = 0;
+                    return accBalance;
                 }
                 else {
+                    System.out.println("yes");
                     return accBalance;
                 }
             }
@@ -102,10 +108,14 @@ public class BankAccount {
             return accBalance;
         }
     }
-    public double addInterest(double rate) {
-            this.accBalance = accBalance + (accBalance * rate);
-            return accBalance;
+    // addinterest function increases the bank account balance by a certain rate
+    public double addInterest() {
+        if (this.interestRate > 0 && this.interestRate < 1) {
+            this.accBalance = accBalance + (accBalance * this.interestRate);
+        }
+        return accBalance;
     }
+    //Set the corresponding interest rate for each of the bank accs
     public void setInterestRate(double rate) {
         if (rate >= 0 && rate <= 100){
             rate = rate / 100;
@@ -115,6 +125,12 @@ public class BankAccount {
             System.out.println("Error: Interest rate percent must be greater than 0 and between 0 - 100.");
         }
 
+    }
+    //displays all account information
+    public void displayAccounts(ArrayList<BankAccount> accounts) {
+        for (BankAccount acc : accounts) {
+            System.out.println(acc);
+        }
     }
 
 }
