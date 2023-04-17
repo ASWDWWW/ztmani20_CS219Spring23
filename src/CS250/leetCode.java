@@ -5,43 +5,34 @@ public class leetCode {
         int count = 0;
         if (s.length() <= 15){
             for (int i = 0; i < s.length(); i++) {
-                boolean flag = true;
-                if (flag == true){
+                for (int j = 0; )
                     if (i == s.length() - 1) {
                         if (s.charAt(i) == 'V') {
                             count = count + 5;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'L') {
                             count = count + 50;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'D') {
                             count = count + 500;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'M') {
                             count = count + 1000;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'I') {
                             count = count + 1;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'C') {
                             count = count + 100;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'X') {
                             count = count + 10;
-                            flag = false;
                         }
 
                     }
                     else {
                         if (s.charAt(i) == 'I' && s.charAt(i + 1) == 'V') {
                             count = count + 4;
-                            flag = false;
                         }
                         if (s.charAt(i) == 'I' && s.charAt(i + 1) == 'X') {
                             count = count + 9;
@@ -91,7 +82,6 @@ public class leetCode {
                         }
                         if (s.charAt(i) == 'M') {
                             count = count + 1000;
-                            flag = false;
                         }
                     }
                 } // end of while
