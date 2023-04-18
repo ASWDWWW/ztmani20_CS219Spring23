@@ -1,6 +1,8 @@
 package ZipCodes;
 
-public class ZipCode {
+import OOP.Checksum;
+
+public class ZipCode implements Comparable<ZipCode> {
     private String code; // zipcode
     private String state; //the two char state code
     private String city; // city name
@@ -45,5 +47,17 @@ public class ZipCode {
 
     public double dist(ZipCode that) {
         return this.coord.dist(that.coord);
+    }
+
+    //TODO How do we order by a combination of the zipcode and the state
+    @Override
+    public int compareTo(ZipCode that) {
+
+        return this.code.compareTo(that.code);
+//      return this.city.compareTo(that.city);
+        // to reverse the order
+//        return that.city.compareTo(this.city);
+//        //TODO fix the statement below to return -1, 0, 1 instead of boolean
+//        return this.coord.getLat() < that.coord.getLat();
     }
 }

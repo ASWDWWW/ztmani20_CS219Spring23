@@ -21,6 +21,16 @@ public class Main {
         System.out.println(p2.dist(p1));
         System.out.println(p2.dist(p2));
         System.out.println(p1.dist(p1));
+
+        System.out.println();
+        //IntegerChecksum is a checksum
+        Checksum cs = new IntegerChecksum();
+        IntegerChecksum cs2 = new IntegerChecksum();
+        System.out.println(cs.checksum(12345) == 15);
+        System.out.println(cs2.checksum(1234) == 10);
+
+        Checksum scs = new StringChecksum();
+        System.out.println(scs.checksum("Hello"));
     }
 
 }
