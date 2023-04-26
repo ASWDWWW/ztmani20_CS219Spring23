@@ -10,7 +10,7 @@ public class WeatherClient implements WeatherClientInterface {
 
     @Override
     public WeatherObervation getWeather(ZipCode code) {
-        String cloudcover = "";
+        String cloudcover = "n/a";
         double humidity = 0;
         double windspeed = 0;
         double temperature = 0;
@@ -23,20 +23,20 @@ public class WeatherClient implements WeatherClientInterface {
             return null;
         }
         while (s.hasNextLine()) {
-            if (s.hasNext("clouds")) {
-                String cl = s.toString();
-                cloudcover = cl.substring(10, cl.length() - 2);
-            } else {
-                cloudcover = "n/a";
+            String line = s.nextLine();
+            if (line.contains("clouds") && !line.contains("cloudsCode")) {
+                cloudcover = line.substring(13, line.length() - 2);
             }
-            if (s.hasNext("tempature")) {
-                temperature = s.nextDouble();
+            if (line.contains("temperature")) {
+                double temperatureInC = Double.parseDouble(line.substring(18, line.length()-2));
+                temperature = (temperatureInC * (9.0/5.0)) + 32;
             }
-            if (s.hasNext("humidity")) {
-                humidity = s.nextDouble();
+            if (line.contains("humidity")) {
+
+                humidity = Double.parseDouble(line.substring(14,line.length()-1));
             }
-            if (s.hasNext("windSpeed")) {
-                windspeed = s.nextDouble();
+            if (line.contains("windSpeed")) {
+                windspeed = Double.parseDouble(line.substring(16,line.length()-2));
             }
 
         }
