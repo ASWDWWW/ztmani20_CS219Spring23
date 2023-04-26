@@ -1,10 +1,10 @@
 package HW8;
 
 public class WeatherObervation {
-    private final double temperature;
-    private final double windspeed;
-    private final double humidity;
-    private final String cloudcover;
+    protected double temperature;
+    protected double windspeed;
+    protected double humidity;
+    protected String cloudcover;
 
     public WeatherObervation(double temperature, double windspeed, double humidity, String cloudcover) {
         this.temperature = temperature;

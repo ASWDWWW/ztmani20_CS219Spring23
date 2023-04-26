@@ -5,22 +5,47 @@ import ZipCodes.ZipCodeDB;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main extends WeatherObervation{
+
+    public Main(double temperature, double windspeed, double humidity, String cloudcover) {
+        super(temperature, windspeed, humidity, cloudcover);
+    }
 
     public static void main(String[] args) {
+        System.out.println("CS219 HW8 Weather App");
+        System.out.println("Type \"quit\" to end the program.");
+        ZipCodeDB db = new ZipCodeDB();
+        db.load();
         boolean flag = true;
         while (flag){
-            System.out.println("Enter a 5 digit zipcod: ");
+            System.out.print("Enter a zip code> ");
             Scanner kbd = new Scanner(System.in);
-            if (kbd.hasNextDouble()) {
-                ZipCode code = new ZipCode(kbd);
-                WeatherClient c = new WeatherClient(kbd);
+            String zip = kbd.nextLine();
+            if (!zip.equals("quit")) {
+                ZipCode code = db.findByZip(zip);
+                if (code == null) {
+                    System.out.println("invalid zipcode.");
+                }
+                else {
+                    WeatherClient wc = new WeatherClient();
+                    WeatherObervation w = wc.getWeather(code);
+                    String city = code.getCity();
+                    String state = code.getState();
+                    double temp = w.getTemperature();
+                    double windspeed = w.getWindspeed();
+                    double humidity = w.getHumidity();
+                    String cloudcover = w.getCloudcover();
+                    System.out.println("The temperature in " + city + ", " + state + " is " + temp + " degrees fahrenheit Wind speed is " + windspeed + " Knots, humidity " + humidity + "% Cloud cover: " + cloudcover);
+                    String q = "quit";
+                    System.out.println("Type " + q + " to end the program.");
+                }
             }
             else {
-                System.out.println("invalid zipcode.");
+                flag = false;
+
             }
-            ZipCode code = new ZipCode(kbd);
-            WeatherClient w = new WeatherClient(zipcode);
+
+
         }
         }
 
