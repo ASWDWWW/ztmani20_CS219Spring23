@@ -29,9 +29,11 @@ public class practice {
         System.out.println(4-9+"94");
         System.out.println("23"+2+-3);
         System.out.println(4321%10);
-
-        String s = "hello";
-        s. = "d";
-
+        char ch = 'a';
+        System.out.println((int) ch);
+        System.out.println((int) 'a'+ 5);
+        char d = 'a' + 5;
+        System.out.println(d);
+        System.out.println('a' - 'd');
     }
 }
